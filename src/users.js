@@ -116,7 +116,8 @@ Users.prototype.setAuthenticationCredentials = function (contextid, userid, auth
 
 Users.prototype.authenticateAsUser = function (contextid, userid,  callback) {
   const params = {'contextId' : contextid, 'userId' : userid};
-
+  
+  
   if (typeof callback === 'function') {
     this.api.request('/users/action/authenticateAsUser/', params, callback);
     return;
@@ -124,4 +125,16 @@ Users.prototype.authenticateAsUser = function (contextid, userid,  callback) {
   return this.api.requestPromise('/users/action/authenticateAsUser/', params);
 };
 
+
+
+Users.prototype.getAuthenticationSession = function (contextid, userid,  callback) {
+  const params = {'contextId' : contextid, 'userId' : userid};
+  
+  
+  if (typeof callback === 'function') {
+    this.api.request('/users/action/getAuthenticationSession/', params, callback);
+    return;
+  }
+  return this.api.requestPromise('/users/view/getAuthenticationSession/', params);
+};
 module.exports = Users;
