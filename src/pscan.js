@@ -136,5 +136,11 @@ Pscan.prototype.setScannerAlertThreshold = function (id, alertthreshold, callbac
   }
   return this.api.requestPromise('/pscan/action/setScannerAlertThreshold/', {'id' : id, 'alertThreshold' : alertthreshold});
 };
-
+Pscan.prototype.setMaxAlertsPerRule = function (maxAlerts, callback) {
+  if (typeof callback === 'function') {
+    this.api.request('/pscan/action/setMaxAlertsPerRule/', {'maxAlerts' : maxAlerts}, callback);
+    return;
+  }
+  return this.api.requestPromise('/pscan/action/setMaxAlertsPerRule/', {'maxAlerts' : maxAlerts});
+};
 module.exports = Pscan;
