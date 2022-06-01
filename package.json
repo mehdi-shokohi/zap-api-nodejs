@@ -1,7 +1,7 @@
 {
   "name": "zaproxy",
   "description": "ZAProxy Client API for Node.js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "homepage": "https://github.com/zaproxy/zap-api-nodejs",
   "author": {
     "name": "Kim Carter",

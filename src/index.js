@@ -21,6 +21,7 @@ const request = require('request');
 const requestPromise = require('request-promise-native');
 
 const Acsrf = require('./acsrf');
+const Alert = require('./alert');
 const AjaxSpider = require('./ajaxSpider');
 const Ascan = require('./ascan');
 const Authentication = require('./authentication');
@@ -64,6 +65,7 @@ function ClientApi(options) {
   
   this.req = request.defaults(requestOptions);
   this.reqPromise = requestPromise.defaults(requestOptions);
+  this.alert = new Alert(this);
   this.acsrf = new Acsrf(this);
   this.ajaxSpider = new AjaxSpider(this);
   this.ascan = new Ascan(this);
