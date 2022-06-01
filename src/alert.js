@@ -15,8 +15,8 @@ function Alert(clientApi) {
      if (url && url!==null && url !=="") {
          params.url = url
      }
-     if (recurse && url!==null ) {
-        params.recurse = url
+     if (recurse && recurse!==null ) {
+        params.recurse = recurse
     }
   if (typeof callback === 'function') {
     this.api.request('/alert/view/alertCountsByRisk/',params ,callback);
@@ -30,8 +30,8 @@ Alert.prototype.alertsByRisk = function (url,recurse,callback) {
     if (url && url!==null && url !=="") {
         params.url = url
     }
-    if (recurse && url!==null ) {
-       params.recurse = url
+    if (recurse && recurse!==null ) {
+       params.recurse = recurse
    }
  if (typeof callback === 'function') {
    this.api.request('/alert/view/alertsByRisk/',params ,callback);
@@ -39,3 +39,5 @@ Alert.prototype.alertsByRisk = function (url,recurse,callback) {
  }
  return this.api.requestPromise('/alert/view/alertsByRisk/',params);
 };
+
+module.exports = Alert;
