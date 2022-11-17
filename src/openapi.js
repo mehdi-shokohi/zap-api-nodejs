@@ -43,10 +43,13 @@ Openapi.prototype.importFile = function (file, callback) {
  * Import an Open API definition from a URL, hostOverride allows the host to be replaced
  * This component is optional and therefore the API will only work if it is installed
  **/
-Openapi.prototype.importUrl = function (url, hostoverride, callback) {
+Openapi.prototype.importUrl = function (url, hostoverride,contextId, callback) {
   const params = {'url' : url};
   if (hostoverride && hostoverride !== null) {
     params['hostOverride'] = hostoverride;
+  }
+  if (contextId && contextId !== null) {
+    params['contextId'] = contextId;
   }
   if (typeof callback === 'function') {
     this.api.request('/openapi/action/importUrl/', params, callback);
