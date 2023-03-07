@@ -64,14 +64,15 @@ const BASE = 'http://zap/JSON';
 const BASE_OTHER = 'http://zap/OTHER';
 
 function ClientApi(options) {
+  options.apiKey = process.env.ZAP_API_KEY || options.apiKey
   const requestOptions = {
     proxy: { ...{ proxy: 'http://127.0.0.1:8080' }, ...options }.proxy,
     method: 'GET',
     json: true,
-    agent: http.Agent({keepAlive:true}),
+    agent: http.Agent({ keepAlive: false }),
+
     headers: options.apiKey ? { 'X-ZAP-API-Key': options.apiKey } : {}
   };
-  
   this.req = request.defaults(requestOptions);
   this.reqPromise = requestPromise.defaults(requestOptions);
   this.accessControl = new AccessControl(this);
@@ -139,7 +140,7 @@ const responseHandler = function (callback) {
 };
 
 ClientApi.prototype.request = function (url, parms, callback) {
-  if (!callback && typeof(parms === 'function')) {
+  if (!callback && typeof (parms === 'function')) {
     callback = parms;
     parms = null;
   }
@@ -154,7 +155,7 @@ ClientApi.prototype.request = function (url, parms, callback) {
 };
 
 ClientApi.prototype.requestOther = function (url, parms, callback) {
-  if (!callback && typeof(parms === 'function')) {
+  if (!callback && typeof (parms === 'function')) {
     callback = parms;
     parms = null;
   }
