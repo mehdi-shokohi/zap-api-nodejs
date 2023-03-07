@@ -18,6 +18,7 @@
  */
 
 const request = require('request');
+const http = require('http');
 const requestPromise = require('request-promise-native');
 const AccessControl = require('./accessControl');
 const Acsrf = require('./acsrf');
