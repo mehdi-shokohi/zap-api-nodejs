@@ -64,9 +64,7 @@ Openapi.prototype.importUrl = function (args, callback) {
   if (args.contextid && args.contextid !== null) {
     params['contextId'] = args.contextid;
   }
-  if (contextId && contextId !== null) {
-    params['contextId'] = contextId;
-  }
+
   if (typeof callback === 'function') {
     this.api.request('/openapi/action/importUrl/', params, callback);
     return;
