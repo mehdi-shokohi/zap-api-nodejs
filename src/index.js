@@ -68,6 +68,7 @@ function ClientApi(options) {
     proxy: { ...{ proxy: 'http://127.0.0.1:8080' }, ...options }.proxy,
     method: 'GET',
     json: true,
+    agent: http.Agent({keepAlive:true}),
     headers: options.apiKey ? { 'X-ZAP-API-Key': options.apiKey } : {}
   };
   
