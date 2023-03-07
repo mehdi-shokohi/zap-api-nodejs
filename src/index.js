@@ -23,7 +23,6 @@ const AccessControl = require('./accessControl');
 const Acsrf = require('./acsrf');
 const Alert = require('./alert');
 const AjaxSpider = require('./ajaxSpider');
-const Alert = require('./alert')
 const AlertFilter = require('./alertFilter');
 const Ascan = require('./ascan');
 const Authentication = require('./authentication');
